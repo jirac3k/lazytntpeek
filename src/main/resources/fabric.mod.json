@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "id": "lazytntpeek",
+  "version": "${version}",
+  "name": "Lazy TNT Peek",
+  "description": "Keeps primed TNT visible and at its server position in lazy chunks. Toggle with Ctrl+H.",
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": { "client": [ "com.example.lazytntpeek.LazyTntPeekClient" ] },
+  "mixins": [ "lazytntpeek.mixins.json" ],
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "minecraft": "1.21.11",
+    "fabric-api": "*"
+  }
+}
