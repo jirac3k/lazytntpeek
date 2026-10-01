@@ -5,7 +5,6 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.minecraft.client.KeyMapping;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import org.lwjgl.glfw.GLFW;
 
@@ -26,7 +25,7 @@ public class LazyTntPeekClient implements ClientModInitializer {
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             // Drain every queued press; only act on those made while Ctrl is held.
             while (toggleKey.consumeClick()) {
-                if (Screen.hasControlDown()) {
+                if (client.hasControlDown()) {
                     enabled = !enabled;
                     if (client.player != null) {
                         client.player.displayClientMessage(Component.translatable(
